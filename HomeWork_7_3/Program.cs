@@ -36,7 +36,7 @@ namespace HomeWork_7_3
                         break;
 
                     case CommandSortByDisease:
-                        hospital.SortByDisease();
+                        hospital.FindByDisease();
                         break;
 
                     default:
@@ -50,20 +50,19 @@ namespace HomeWork_7_3
     class Hospital
     {
         private List<Patient> _patients;
-
         public Hospital()
         {
             _patients = new List<Patient>();
-            _patients.Add(new Patient("Александров Александр Алексанлрович", 30, Disease.Ифекция));
-            _patients.Add(new Patient("Иванов Иван Иванович", 25, Disease.Ковид));
-            _patients.Add(new Patient("Авдюхин Глеб Павлович", 22, Disease.Ифекция));
-            _patients.Add(new Patient("Акимова Ольга Валентиновна", 27, Disease.Ковид));
-            _patients.Add(new Patient("Алейникова Виктория Владимировна", 34, Disease.Ифекция));
-            _patients.Add(new Patient("Белкина Александра Сергеевна", 37, Disease.Ковид));
-            _patients.Add(new Patient("Белоглазова Анна Юрьевна", 45, Disease.Перелом));
-            _patients.Add(new Patient("Беляева Алёна Игорьевна", 66, Disease.Ковид));
-            _patients.Add(new Patient("Гаврилова Светлана Владимировна", 55, Disease.Простуда));
-            _patients.Add(new Patient("Гавричкова Лилия Николаевна", 60, Disease.Перелом));
+            _patients.Add(new Patient("Александров Александр Алексанлрович", 30, Disease.Infection));
+            _patients.Add(new Patient("Иванов Иван Иванович", 25, Disease.Covid));
+            _patients.Add(new Patient("Авдюхин Глеб Павлович", 22, Disease.Infection));
+            _patients.Add(new Patient("Акимова Ольга Валентиновна", 27, Disease.Covid));
+            _patients.Add(new Patient("Алейникова Виктория Владимировна", 34, Disease.Infection));
+            _patients.Add(new Patient("Белкина Александра Сергеевна", 37, Disease.Covid));
+            _patients.Add(new Patient("Белоглазова Анна Юрьевна", 45, Disease.fracture));
+            _patients.Add(new Patient("Беляева Алёна Игорьевна", 66, Disease.Covid));
+            _patients.Add(new Patient("Гаврилова Светлана Владимировна", 55, Disease.Cаtarrh));
+            _patients.Add(new Patient("Гавричкова Лилия Николаевна", 60, Disease.fracture));
         }
 
         public void SortByFullName()
@@ -78,7 +77,7 @@ namespace HomeWork_7_3
             ShowPatients(patients);
         }
 
-        public void SortByDisease()
+        public void FindByDisease()
         {
             Console.Write("Введите название болезни:");
 
@@ -112,14 +111,13 @@ namespace HomeWork_7_3
             Age = age;
             Disease = disease;
         }
-
     }
+
     public enum Disease
     {
-        Ифекция,
-        Простуда,
-        Ковид,
-        Перелом
+        Infection,
+        Cаtarrh,
+        Covid,
+        fracture
     }
-
 }
